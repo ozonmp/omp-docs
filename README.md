@@ -6,7 +6,7 @@
 - `{domain}`,`{Domain}`
 - `{subdomain}`,`{Subdomain}`
 
-На пример для поддомена `package` из домена `logistic` значение **placeholder**-ов будет:
+Например, для поддомена `package` из домена `logistic` значение **placeholder**-ов будет:
 - `{domain}`,`{Domain}` = `logistic`,`Logistic`
 - `{subdomain}`,`{Subdomain}` = `package`,`Package`
 - `{domain}`/`{subdomain}` = `logistic`/`package`
@@ -18,15 +18,15 @@
 2. Запросить у своего тьютора свой домен/поддомен: **{domain}/{subdomain}**
 3. Добавить в ветку `feature/task-1` своего форка поддержку следующих команд:
 ```
-/help-{domain}-{subdomain} — print list of commands
-/get-{domain}-{subdomain} — get a entity
-/list-{domain}-{subdomain} — get a list of your entity (💎: with pagination via telegram keyboard)
-/delete-{domain}-{subdomain} — delete an existing entity
+/help__{domain}__{subdomain} — print list of commands
+/get__{domain}__{subdomain} — get a entity
+/list__{domain}__{subdomain} — get a list of your entity (💎: with pagination via telegram keyboard)
+/delete__{domain}__{subdomain} — delete an existing entity
 
-/new-{domain}-{subdomain} — create a new entity // not implemented (💎: implement list fields via arguments)
-/edit-{domain}-{subdomain} — edit a entity      // not implemented
+/new__{domain}__{subdomain} — create a new entity // not implemented (💎: implement list fields via arguments)
+/edit__{domain}__{subdomain} — edit a entity      // not implemented
 ```
-4. Сделать PR из ветки `feature/task-1` своего форка в ветку `main` своего форка
+4. Сделать PR из ветки `feature/task-1` своего форка в ветку `master` своего форка
 5. Отправить ссылку на PR личным сообщением своему тьютору до конда дедлайна сдачи (см. таблицу прогресса)
 
 Для добавления поддержки команд в рамках своего поддомена:
@@ -37,7 +37,7 @@
 
 ---
 
-2. Написать интерфейс `{Subdomain}Service` в **internal/service/{domain}/{subdomain}.go**
+2. Реализовать `{Subdomain}Service` в **internal/service/{domain}/{subdomain}/**
 
 ```go
 package {domain}
@@ -63,14 +63,14 @@ func NewDummy{Subdomain}Service() Dummy{Subdomain}Service {
 
 ---
 
-3. Написать интерфейс `{Subdomain}Commander` по обработке команд в **internal/command/{domain}/{subdomain}.go**
+3. Реализовать `{Subdomain}Commander` по обработке команд в **internal/app/commands/{domain}/{subdomain}/**
 
 ```go
-package {domain}
+package {subdomain}
 
 import (
   model "github.com/ozonmp/omp-bot/internal/model/{domain}"
-  service "github.com/ozonmp/omp-bot/internal/service/{domain}"
+  service "github.com/ozonmp/omp-bot/internal/service/{domain}/{subdomain}"
 )
 
 type {Subdomain}Commander interface {
