@@ -19,10 +19,12 @@
 
 ```
 /help-{domain}-{subdomain} — print list of commands
-/new-{domain}-{subdomain} — create a new entity
+/get-{domain}-{subdomain} — get a entity
 /list-{domain}-{subdomain} — get a list of your entity
-/edit-{domain}-{subdomain} — edit a entity
 /delete-{domain}-{subdomain} — delete an existing entity
+
+/new-{domain}-{subdomain} — create a new entity // not implemented
+/edit-{domain}-{subdomain} — edit a entity      // not implemented
 ```
 
 Для добавления поддержки команд в рамках своего поддомена:
@@ -67,12 +69,13 @@ import (
 )
 
 type {Subdomain}Commander interface {
-  New(inputMsg *tgbotapi.Message)    // return error not implemented
   Help(inputMsg *tgbotapi.Message)
   Get(inputMsg *tgbotapi.Message)
   List(inputMsg *tgbotapi.Message)
-  Edit(inputMsg *tgbotapi.Message)   // return error not implemented
   Delete(inputMsg *tgbotapi.Message)
+
+  New(inputMsg *tgbotapi.Message)    // return error not implemented
+  Edit(inputMsg *tgbotapi.Message)   // return error not implemented
 }
 
 func New{Subdomain}Commander(bot *tgbotapi.BotAPI) {Subdomain}Commander {
