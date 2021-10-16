@@ -40,7 +40,7 @@
 2. Реализовать `{Subdomain}Service` в **internal/service/{domain}/{subdomain}/**
 
 ```go
-package {domain}
+package {subdomain}
 
 import "github.com/ozonmp/omp-bot/internal/model/{domain}"
 
