@@ -12,7 +12,7 @@
 - `{domain}`,`{Domain}` = `logistic`,`Logistic`
 - `{subdomain}`,`{Subdomain}` = `package`,`Package`
 - `{domain}`/`{subdomain}` = `logistic`/`package`
-
+---
 
 1. Сделать форк **ozonmp/omp-bot** репозитория в свой профиль
 2. Запросить у своего тьютора свой домен/поддомен: **{domain}/{subdomain}**
