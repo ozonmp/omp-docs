@@ -2,8 +2,6 @@
 
 ![schema](schema.png)
 
-### Задание 1
-
 Дальше везде используются **placeholder**-ы:
 - `{domain}`,`{Domain}`
 - `{subdomain}`,`{Subdomain}`
@@ -13,6 +11,8 @@
 - `{subdomain}`,`{Subdomain}` = `package`,`Package`
 - `{domain}`/`{subdomain}` = `logistic`/`package`
 ---
+
+### Задание 1
 
 1. Сделать форк **ozonmp/omp-bot** репозитория в свой профиль
 2. Запросить у своего тьютора свой домен/поддомен: **{domain}/{subdomain}**
