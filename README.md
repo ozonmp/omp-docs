@@ -20,7 +20,7 @@
 ```
 /help-{domain}-{subdomain} — print list of commands
 /get-{domain}-{subdomain} — get a entity
-/list-{domain}-{subdomain} — get a list of your entity (with pagination)
+/list-{domain}-{subdomain} — get a list of your entity (💎: with pagination via telegram keyboard)
 /delete-{domain}-{subdomain} — delete an existing entity
 
 /new-{domain}-{subdomain} — create a new entity // not implemented (💎: implement list fields via arguments)
