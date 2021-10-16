@@ -67,11 +67,15 @@ import (
 )
 
 type {Subdomain}Commander interface {
-  New(...)    // return error not implemented
-  Help(...)
-  Get(...)
-  List(...)
-  Edit(...)   // return error not implemented
-  Delete(...)
+  New(inputMsg *tgbotapi.Message)    // return error not implemented
+  Help(inputMsg *tgbotapi.Message)
+  Get(inputMsg *tgbotapi.Message)
+  List(inputMsg *tgbotapi.Message)
+  Edit(inputMsg *tgbotapi.Message)   // return error not implemented
+  Delete(inputMsg *tgbotapi.Message)
+}
+
+func New{Subdomain}Commander(bot *tgbotapi.BotAPI) {Subdomain}Commander {
+  // ...
 }
 ```
