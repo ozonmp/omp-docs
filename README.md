@@ -23,7 +23,7 @@
 /list-{domain}-{subdomain} — get a list of your entity
 /delete-{domain}-{subdomain} — delete an existing entity
 
-/new-{domain}-{subdomain} — create a new entity // not implemented
+/new-{domain}-{subdomain} — create a new entity // not implemented (💎: implement list fields via arguments)
 /edit-{domain}-{subdomain} — edit a entity      // not implemented
 ```
 
@@ -43,17 +43,20 @@ package {domain}
 import "github.com/ozonmp/omp-bot/internal/model/{domain}"
 
 type {Subdomain}Service interface {
-  Describe({subdomain}_id uint64) // ...🤔
-  List(cursor uint64, limit uint64) // ...🤔
-  Create({domain}.{Subdomain}) //...🤔
-  Update({subdomain}_id uint64, {subdomain} {domain}.{Subdomain}) // ...🤔
-  Remove({subdomain}_id uint64) // ...🤔
+  Describe({subdomain}_id uint64) (*{domain}.{Subdomain}, error)
+  List(cursor uint64, limit uint64) ([])
+  Create({domain}.{Subdomain}) (uint64, error)
+  Update({subdomain}_id uint64, {subdomain} {domain}.{Subdomain}) error
+  Remove({subdomain}_id uint64) (bool, error)
 }
 
 type Dummy{Subdomain}Service struct {}
 
-func New() Dummy{Subdomain}Service {
+func NewDummy{Subdomain}Service() Dummy{Subdomain}Service {
+  return &Dummy{Subdomain}Service{}
 }
+
+// ...
 ```
 
 ---
@@ -78,7 +81,7 @@ type {Subdomain}Commander interface {
   Edit(inputMsg *tgbotapi.Message)   // return error not implemented
 }
 
-func New{Subdomain}Commander(bot *tgbotapi.BotAPI) {Subdomain}Commander {
+func New{Subdomain}Commander(bot *tgbotapi.BotAPI, service service.{Subdomain}Service) {Subdomain}Commander {
   // ...
 }
 ```
