@@ -56,7 +56,7 @@ type {Subdomain}Service interface {
 
 type Dummy{Subdomain}Service struct {}
 
-func NewDummy{Subdomain}Service() Dummy{Subdomain}Service {
+func NewDummy{Subdomain}Service() *Dummy{Subdomain}Service {
   return &Dummy{Subdomain}Service{}
 }
 
