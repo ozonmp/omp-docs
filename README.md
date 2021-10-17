@@ -48,7 +48,7 @@ import "github.com/ozonmp/omp-bot/internal/model/{domain}"
 
 type {Subdomain}Service interface {
   Describe({subdomain}_id uint64) (*{domain}.{Subdomain}, error)
-  List(cursor uint64, limit uint64) ([])
+  List(cursor uint64, limit uint64) ([]{domain}.{Subdomain}, error)
   Create({domain}.{Subdomain}) (uint64, error)
   Update({subdomain}_id uint64, {subdomain} {domain}.{Subdomain}) error
   Remove({subdomain}_id uint64) (bool, error)
