@@ -1,12 +1,12 @@
 package main
 
 import (
+	"github.com/istrel/bot/internal/service/license/license"
 	"log"
 	"os"
 
 	tgbotapi "github.com/go-telegram-bot-api/telegram-bot-api"
-	"github.com/istrel/bot/internal/app/commands"
-	"github.com/istrel/bot/internal/service/product"
+	"github.com/istrel/bot/internal/app/commands/license/license"
 	"github.com/joho/godotenv"
 )
 
@@ -33,9 +33,9 @@ func main() {
 		log.Panic(err)
 	}
 
-	productService := product.NewService()
+	licenseService := license.NewLicenseService()
 
-	commander := commands.NewCommander(bot, productService)
+	commander := commands.NewLicenseCommander(bot, licenseService)
 
 	for update := range updates {
 		commander.HandleUpdate(update)

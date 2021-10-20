@@ -8,7 +8,7 @@ import (
 	tgbotapi "github.com/go-telegram-bot-api/telegram-bot-api"
 )
 
-func (c *Commander) Default(inputMessage *tgbotapi.Message) {
+func (c *LicenseCommander) Default(inputMessage *tgbotapi.Message) {
 	log.Printf("[%s] %s", inputMessage.From.UserName, inputMessage.Text)
 
 	msg := tgbotapi.NewMessage(inputMessage.Chat.ID, "You wrote: "+inputMessage.Text)
@@ -16,7 +16,7 @@ func (c *Commander) Default(inputMessage *tgbotapi.Message) {
 	c.bot.Send(msg)
 }
 
-func (c *Commander) HandleUpdate(update tgbotapi.Update) {
+func (c *LicenseCommander) HandleUpdate(update tgbotapi.Update) {
 	defer func() {
 		if panicValue := recover(); panicValue != nil {
 			log.Printf("recovered from panic: %v", panicValue)
@@ -31,7 +31,7 @@ func (c *Commander) HandleUpdate(update tgbotapi.Update) {
 	}
 }
 
-func (c *Commander) handleCallback(callback *tgbotapi.CallbackQuery) {
+func (c *LicenseCommander) handleCallback(callback *tgbotapi.CallbackQuery) {
 	parsedData := CommandData{}
 	json.Unmarshal([]byte(callback.Data), &parsedData)
 	msg := tgbotapi.NewMessage(
@@ -41,7 +41,7 @@ func (c *Commander) handleCallback(callback *tgbotapi.CallbackQuery) {
 	c.bot.Send(msg)
 }
 
-func (c *Commander) handleMessage(msg *tgbotapi.Message) {
+func (c *LicenseCommander) handleMessage(msg *tgbotapi.Message) {
 	switch msg.Command() {
 	case "help":
 		c.Help(msg)

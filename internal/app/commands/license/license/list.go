@@ -6,11 +6,11 @@ import (
 	tgbotapi "github.com/go-telegram-bot-api/telegram-bot-api"
 )
 
-func (c *Commander) List(inputMessage *tgbotapi.Message) {
-	outputMsgText := "Here all the products: \n\n"
+func (c *LicenseCommander) List(inputMessage *tgbotapi.Message) {
+	outputMsgText := "Here all the licenses: \n\n"
 
-	products := c.productService.List()
-	for _, p := range products {
+	licenses := c.licenseService.List()
+	for _, p := range licenses {
 		outputMsgText += p.Title
 		outputMsgText += "\n"
 	}

@@ -7,7 +7,7 @@ import (
 	tgbotapi "github.com/go-telegram-bot-api/telegram-bot-api"
 )
 
-func (c *Commander) Callback(callback *tgbotapi.CallbackQuery) {
+func (c *LicenseCommander) Callback(callback *tgbotapi.CallbackQuery) {
 	parsedData := CommandData{}
 	json.Unmarshal([]byte(callback.Data), &parsedData)
 	msg := tgbotapi.NewMessage(

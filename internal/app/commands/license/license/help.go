@@ -4,10 +4,10 @@ import (
 	tgbotapi "github.com/go-telegram-bot-api/telegram-bot-api"
 )
 
-func (c *Commander) Help(inputMessage *tgbotapi.Message) {
+func (c *LicenseCommander) Help(inputMessage *tgbotapi.Message) {
 	msg := tgbotapi.NewMessage(inputMessage.Chat.ID,
 		"/help - help\n"+
-			"/list - list products",
+			"/list - list licenses",
 	)
 
 	c.bot.Send(msg)

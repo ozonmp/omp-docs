@@ -1,6 +1,6 @@
-package product
+package license
 
-var allProducts = []Product{
+var alllicenses = []license{
 	{Title: "one"},
 	{Title: "two"},
 	{Title: "three"},
@@ -8,6 +8,6 @@ var allProducts = []Product{
 	{Title: "five"},
 }
 
-type Product struct {
+type license struct {
 	Title string
 }
