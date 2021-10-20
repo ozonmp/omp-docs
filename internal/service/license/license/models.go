@@ -1,13 +1,11 @@
 package license
 
-var alllicenses = []*license{
-	{Title: "one"},
-	{Title: "two"},
-	{Title: "three"},
-	{Title: "four"},
-	{Title: "five"},
-}
+import "github.com/istrel/bot/internal/model/license"
 
-type license struct {
-	Title string
+var alllicenses = map[uint32]license.License{
+	1: {ID: 1, Title: "one"},
+	2: {ID: 2, Title: "two"},
+	3: {ID: 3, Title: "three"},
+	4: {ID: 4, Title: "four"},
+	5: {ID: 5, Title: "five"},
 }

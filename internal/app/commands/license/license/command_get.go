@@ -1,4 +1,4 @@
-package commands
+package license
 
 import (
 	"log"
@@ -7,7 +7,7 @@ import (
 	tgbotapi "github.com/go-telegram-bot-api/telegram-bot-api"
 )
 
-func (c *LicenseCommander) Get(inputMessage *tgbotapi.Message) {
+func (c *LicenseLicenseCommander) Get(inputMessage *tgbotapi.Message) {
 	args := inputMessage.CommandArguments()
 
 	idx, err := strconv.Atoi(args)
@@ -24,8 +24,11 @@ func (c *LicenseCommander) Get(inputMessage *tgbotapi.Message) {
 
 	msg := tgbotapi.NewMessage(
 		inputMessage.Chat.ID,
-		(*license).Title,
+		license.Title,
 	)
 
-	c.bot.Send(msg)
+	_, err = c.bot.Send(msg)
+	if err != nil {
+		log.Printf("LicenseLicenseCommander.Get: error sending reply message to chat - %v", err)
+	}
 }

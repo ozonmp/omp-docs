@@ -72,7 +72,7 @@ package {subdomain}
 
 import (
   model "github.com/ozonmp/omp-bot/internal/model/{domain}"
-  service "github.com/ozonmp/omp-bot/internal/service/{domain}/{subdomain}"
+  service "github.com/ozonmp/omp-bot/internal/service/{domain}/{license}"
 )
 
 type {Subdomain}Commander interface {

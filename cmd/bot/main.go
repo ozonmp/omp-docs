@@ -6,7 +6,7 @@ import (
 	"os"
 
 	tgbotapi "github.com/go-telegram-bot-api/telegram-bot-api"
-	"github.com/istrel/bot/internal/app/commands/license/license"
+	"github.com/istrel/bot/internal/app_/commands/license/license"
 	"github.com/joho/godotenv"
 )
 
