@@ -24,7 +24,7 @@ func (c *LicenseCommander) Get(inputMessage *tgbotapi.Message) {
 
 	msg := tgbotapi.NewMessage(
 		inputMessage.Chat.ID,
-		license.Title,
+		(*license).Title,
 	)
 
 	c.bot.Send(msg)

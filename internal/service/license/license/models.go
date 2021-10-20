@@ -1,6 +1,6 @@
 package license
 
-var alllicenses = []license{
+var alllicenses = []*license{
 	{Title: "one"},
 	{Title: "two"},
 	{Title: "three"},

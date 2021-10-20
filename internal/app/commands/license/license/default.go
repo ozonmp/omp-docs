@@ -11,7 +11,7 @@ import (
 func (c *LicenseCommander) Default(inputMessage *tgbotapi.Message) {
 	log.Printf("[%s] %s", inputMessage.From.UserName, inputMessage.Text)
 
-	msg := tgbotapi.NewMessage(inputMessage.Chat.ID, "You wrote: "+inputMessage.Text)
+	msg := tgbotapi.NewMessage(inputMessage.Chat.ID, "You wrote 123: "+inputMessage.Text)
 
 	c.bot.Send(msg)
 }
@@ -36,18 +36,24 @@ func (c *LicenseCommander) handleCallback(callback *tgbotapi.CallbackQuery) {
 	json.Unmarshal([]byte(callback.Data), &parsedData)
 	msg := tgbotapi.NewMessage(
 		callback.Message.Chat.ID,
-		fmt.Sprintf("Parsed: %+v\n", parsedData),
+		fmt.Sprintf("Parsed license: %+v\n", parsedData),
 	)
 	c.bot.Send(msg)
 }
 
 func (c *LicenseCommander) handleMessage(msg *tgbotapi.Message) {
 	switch msg.Command() {
-	case "help":
-		c.Help(msg)
-	case "list":
+	case "help__license__license":
+		c.HelpLicenseLicense(msg)
+	case "list__license__license":
 		c.List(msg)
-	case "get":
+	case "get__license__license":
+		c.Get(msg)
+	case "delete__license__license":
+		c.Get(msg)
+	case "new__license__license":
+		c.Get(msg)
+	case "edit__license__license":
 		c.Get(msg)
 	default:
 		c.Default(msg)
