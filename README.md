@@ -1,6 +1,6 @@
 # Ozon Marketplace Project
 
-![schema](images/retranslator.png)
+![schema](images/schema.png)
 
 Дальше везде используются **placeholder**-ы:
 - `{domain}`,`{Domain}`
@@ -12,29 +12,49 @@
 - `{domain}`/`{subdomain}` = `logistic`/`package`
 ---
 
-### Задание 2
+### Задание 3
 
-1. Создать репозиторий именование которого указано в таблице прогресса
+1. Сделать **rebase** своего репозитория `{kw-domain}-{subdomain}-api` на **omp-template-api**
+2. Добавить в **proto** следующие **handler**-ы (ручки):
+   1. `Create{Subdomain}`
+   2. `Describe{Subdomain}`
+   3. `Update{Subdomain}`
+   4. `Remove{Subdomain}`
+3. Добавить теги валидации в поля сообщений
+4. Сделать рефакторинг: заменить `template` на `{subomain}` (см. рецепт)
+5. Сгенерировать **gRPC** код клиента и сервера
+6. Имплементировать код ручек в **internal/api/api.go**
+   1. Код ручек должен просто логгировать вызовы (с уровнем `debug`)
+   2. Возвращать пустой ответ или внутреннюю ошибку (`not implemented`)
+7. Протестировать через **grpc_cli** написанные ручки
+8. Написать тесты по обработке не валидных запросов :gem:
+9. Сгенерировать **Python** код клиента и задеплоить его в **PyPi** :gem:
 
-2. Описать сущность `{domain}.{Subdomain}` и `{domain}.{Subdomain}Event` в **internal/model/{subdomain}.go**
-
-3. Реализовать паттерн consumer-producer из **db** в **kafka** на основе интерфейсов [EventRepo](https://github.com/ozonmp/omp-demo-api/blob/b847b3ae4a3c9e1d25e31e077c847a22f8b7aa99/internal/app/repo/event.go#L7) и [EventSender](https://github.com/ozonmp/omp-demo-api/blob/b847b3ae4a3c9e1d25e31e077c847a22f8b7aa99/internal/app/sender/event.go#L7) для одного типа события **Created**
-
-4. Написать тесты
-
-5. Синхронизацию работы потоков сделать через `context` 💎
-
-6. Создавать задачи у workerpool по обработке батчевых идентификаторов записей событий 💎
-
-7. Поддержать несколько типов событий учитывая корректный порядок 💎
-
-8. Реализовать гарантию доставки **At-least-once** 💎
-
-9. Найти скрытые ошибки в коде 💎
 
 **Рецепт**
 
-[omp-demo-api](https://github.com/ozonmp/omp-demo-api)
+```sh
+export domain_kw=omp
+export subdomain=demo
 
-P.S. Обратите внимание используется зеркальная (внешняя) точка зрения на вопрос, кто является потребителем, а кто является производителем.
-Поэтому паттерн назвали **consumer-producer** и классы переименовали.
+git remote add template https://github.com/ozonmp/omp-template-api
+git fetch template main
+git rebase template/main
+git checkout template/main -- Makefile go.mod go.sum
+git rebase --continue
+rm -rf pkg/omp-template-api
+mkdir pkg/${domain_kw}-${subdomain}-api
+mv protos/ozonmp/omp_template_api/v1/omp_template_api.proto \
+   protos/ozonmp/omp_template_api/v1/${domain_kw}_${subdomain}_api.proto
+mv protos/ozonmp/omp_template_api protos/ozonmp/${domain_kw}_${subdomain}_api
+mv pypkg/omp-template-api pypkg/${domain_kw}-${subdomain}-api
+// grep (exclude 'protos/google' dir)
+// - template -> ${subdomain}
+// - grep omp -> ${domain_kw}
+make generate
+go mod tidy
+make build
+mv DOCS.md README.md
+git add .
+git commit -m"refactored"
+```
