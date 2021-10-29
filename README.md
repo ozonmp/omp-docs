@@ -57,6 +57,7 @@ mv pypkg/omp-template-api pypkg/${domain_kw}-${subdomain}-api
 make generate
 go mod tidy
 make build
+# перенесли в шаблонном репозитории README.md в DOCS.md, чтобы было меньше коонфликтов при rebase
 mv DOCS.md README.md
 git add .
 git commit -m"refactored"
