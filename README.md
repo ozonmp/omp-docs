@@ -17,7 +17,7 @@
 
 ### Задание 3
 
-1. Сделать **rebase** своего репозитория `{kw-domain}-{subdomain}-api` на **omp-template-api**
+1. Сделать **rebase** своего репозитория `{kw-domain}-{subdomain}-api` на [**omp-template-api**](https://github.com/ozonmp/omp-template-api)
 2. Добавить в **proto** следующие **handler**-ы (пример [template](https://github.com/ozonmp/omp-template-api/blob/be1223fb1d1c9751b0d9db1d6e2dfff6ba4c9316/protos/ozonmp/omp_template_api/v1/omp_template_api.proto)):
    1. `Create{Subdomain}`
    2. `Describe{Subdomain}`
