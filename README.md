@@ -12,6 +12,7 @@
 - `{domain}`,`{Domain}` = `logistic`,`Logistic`
 - `{subdomain}`,`{Subdomain}` = `package`,`Package`
 - `{domain}`/`{subdomain}` = `logistic`/`package`
+- `{subdomains}`,`{Subdomains}` = `packages`,`Packages`
 
 ---
 
@@ -36,6 +37,7 @@
 
 **Рецепт**
 
+Переезд проекта на рельсы шаблона
 ```sh
 export domain_kw=omp
 export subdomain=demo
@@ -61,4 +63,41 @@ make build
 mv DOCS.md README.md
 git add .
 git commit -m"refactored"
+```
+
+Описание сообщений
+```proto
+// ...
+
+message {Subdomain} {
+  uint64 id = 1;
+  string foo = 2;
+}
+
+message Create{Subdomain}V1Request {
+  string foo = 1;
+}
+
+message Create{Subdomain}V1Response {
+  uint64 {subdomain}_id = 1;
+}
+
+message Describe{Subdomain}V1Request {
+  uint64 {subdomain}_id = 1;
+}
+
+message List{Subdomains}V1Request {
+}
+
+message List{Subdomains}V1Response {
+  repeated {Subdomain} items = 1;
+}
+
+message Remove{Subdomain}V1Request {
+  uint64 {subdomain}_id = 1;
+}
+
+message Remove{Subdomain}V1Response {
+  bool found = 1;
+}
 ```
