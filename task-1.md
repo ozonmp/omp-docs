@@ -1,3 +1,18 @@
+# Ozon Marketplace Project
+
+![schema](images/schema.png)
+
+Дальше везде используются **placeholder**-ы:
+- `{domain}`,`{Domain}`
+- `{subdomain}`,`{Subdomain}`
+
+Например, для поддомена `package` из домена `logistic` значение **placeholder**-ов будет:
+- `{domain}`,`{Domain}` = `logistic`,`Logistic`
+- `{subdomain}`,`{Subdomain}` = `package`,`Package`
+- `{domain}`/`{subdomain}` = `logistic`/`package`
+---
+
+
 ### Задание 1
 
 1. Сделать форк **ozonmp/omp-bot** репозитория в свой профиль
