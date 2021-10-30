@@ -1,6 +1,6 @@
 # Ozon Marketplace Project
 
-![schema](images/schema.png)
+![schema](images/grpc.png)
 
 Дальше везде используются **placeholder**-ы:
 
