@@ -30,6 +30,7 @@
 6. Имплементировать код новых ручек в **internal/api/api.go** (пример [template](https://github.com/ozonmp/omp-template-api/blob/be1223fb1d1c9751b0d9db1d6e2dfff6ba4c9316/internal/api/api.go#L34))
    1. Код ручек должен просто логгировать вызовы (с уровнем `debug`)
    2. Возвращать пустой ответ или внутреннюю ошибку (`not implemented`)
+   3. При желание разделить по разным файлам имплементацию ручек
 7. Протестировать через **grpc_cli** написанные ручки (пример [template](https://github.com/ozonmp/omp-template-api/blob/main/DOCS.md#grpc))
 8. Написать тесты по обработке не валидных запросов :gem:
 9. Настроить маршрутизацию при запуске контейнеров: :gem: (можно сделать через [dist](https://github.com/ozonmp/omp-grpc-template/tree/master/swagger/dist) директорию)
