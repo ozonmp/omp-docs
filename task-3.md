@@ -22,7 +22,7 @@
 3. Добавить в **proto** следующие **handler**-ы (пример [template](https://github.com/ozonmp/omp-template-api/blob/be1223fb1d1c9751b0d9db1d6e2dfff6ba4c9316/protos/ozonmp/omp_template_api/v1/omp_template_api.proto)):
    1. `Create{Subdomain}`
    2. `Describe{Subdomain}`
-   3. `List{Subdomain}s`
+   3. `List{Subdomains}`
    4. `Remove{Subdomain}`
 4. Добавить теги валидации в поля сообщений (пример [template](https://github.com/ozonmp/omp-template-api/blob/be1223fb1d1c9751b0d9db1d6e2dfff6ba4c9316/protos/ozonmp/omp_template_api/v1/omp_template_api.proto#L28))
 5. Сделать рефакторинг: заменить `template` на `{subomain}` (см. рецепт)
