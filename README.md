@@ -32,7 +32,7 @@
    2. Возвращать пустой ответ или внутреннюю ошибку (`not implemented`)
 7. Протестировать через **grpc_cli** написанные ручки (пример [template](https://github.com/ozonmp/omp-template-api/blob/main/DOCS.md#grpc))
 8. Написать тесты по обработке не валидных запросов :gem:
-9. Настроить маршрутизацию при запуске контейнеров: :gem:
+9. Настроить маршрутизацию при запуске контейнеров: :gem: (можно сделать через [dist](https://github.com/ozonmp/omp-grpc-template/tree/master/swagger/dist) директорию)
    - с `0.0.0.0:8080/swagger` на контейнер **swagger**
    - c `0.0.0.0:8080/api` на контейнер сервиса на порт **gateway**-a
 10. Сгенерировать **Python** код клиента и задеплоить его в **PyPi** :gem: (пример [template](https://github.com/ozonmp/omp-template-api/blob/main/DOCS.md#python-client))
@@ -54,7 +54,7 @@ rm -rf pkg/omp-template-api
 mkdir pkg/${domain_kw}-${subdomain}-api
 mv api/ozonmp/omp_template_api/v1/omp_template_api.proto \
    api/ozonmp/omp_template_api/v1/${domain_kw}_${subdomain}_api.proto
-mv api/ozonmp/omp_template_api protos/ozonmp/${domain_kw}_${subdomain}_api
+mv api/ozonmp/omp_template_api api/ozonmp/${domain_kw}_${subdomain}_api
 mv pypkg/omp-template-api pypkg/${domain_kw}-${subdomain}-api
 // grep (exclude 'protos/google' dir)
 // - template -> ${subdomain}
