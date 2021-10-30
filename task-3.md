@@ -52,9 +52,9 @@ git checkout template/main -- Makefile go.mod go.sum
 git rebase --continue
 rm -rf pkg/omp-template-api
 mkdir pkg/${domain_kw}-${subdomain}-api
-mv protos/ozonmp/omp_template_api/v1/omp_template_api.proto \
-   protos/ozonmp/omp_template_api/v1/${domain_kw}_${subdomain}_api.proto
-mv protos/ozonmp/omp_template_api protos/ozonmp/${domain_kw}_${subdomain}_api
+mv api/ozonmp/omp_template_api/v1/omp_template_api.proto \
+   api/ozonmp/omp_template_api/v1/${domain_kw}_${subdomain}_api.proto
+mv api/ozonmp/omp_template_api api/ozonmp/${domain_kw}_${subdomain}_api
 mv pypkg/omp-template-api pypkg/${domain_kw}-${subdomain}-api
 // grep (exclude 'protos/google' dir)
 // - template -> ${subdomain}
