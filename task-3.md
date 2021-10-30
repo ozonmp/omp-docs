@@ -32,7 +32,7 @@
    2. Возвращать пустой ответ или внутреннюю ошибку (`not implemented`)
 7. Протестировать через **grpc_cli** написанные ручки (пример [template](https://github.com/ozonmp/omp-template-api/blob/main/DOCS.md#grpc))
 8. Написать тесты по обработке не валидных запросов :gem:
-9. Настроить маршрутизацию при запуске контейнеров: :gem:
+9. Настроить маршрутизацию при запуске контейнеров: :gem: (можно сделать через [dist](https://github.com/ozonmp/omp-grpc-template/tree/master/swagger/dist) директорию)
    - с `0.0.0.0:8080/swagger` на контейнер **swagger**
    - c `0.0.0.0:8080/api` на контейнер сервиса на порт **gateway**-a
 10. Сгенерировать **Python** код клиента и задеплоить его в **PyPi** :gem: (пример [template](https://github.com/ozonmp/omp-template-api/blob/main/DOCS.md#python-client))
