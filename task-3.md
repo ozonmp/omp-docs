@@ -19,19 +19,22 @@
 ### Задание 3
 
 1. Сделать **rebase** своего репозитория `{kw-domain}-{subdomain}-api` на [omp-template-api](https://github.com/ozonmp/omp-template-api)
-3. Добавить в **proto** следующие **handler**-ы (пример [template](https://github.com/ozonmp/omp-template-api/blob/be1223fb1d1c9751b0d9db1d6e2dfff6ba4c9316/protos/ozonmp/omp_template_api/v1/omp_template_api.proto)):
+2. Добавить в **proto** следующие **handler**-ы (пример [template](https://github.com/ozonmp/omp-template-api/blob/be1223fb1d1c9751b0d9db1d6e2dfff6ba4c9316/protos/ozonmp/omp_template_api/v1/omp_template_api.proto)):
    1. `Create{Subdomain}`
    2. `Describe{Subdomain}`
    3. `List{Subdomains}`
    4. `Remove{Subdomain}`
-4. Добавить теги валидации в поля сообщений (пример [template](https://github.com/ozonmp/omp-template-api/blob/be1223fb1d1c9751b0d9db1d6e2dfff6ba4c9316/protos/ozonmp/omp_template_api/v1/omp_template_api.proto#L28))
-5. Сделать рефакторинг: заменить `template` на `{subomain}` (см. рецепт)
-6. Сгенерировать **gRPC** код клиента и сервера (make generate)
-7. Имплементировать код новых ручек в **internal/api/api.go** (пример [template](https://github.com/ozonmp/omp-template-api/blob/be1223fb1d1c9751b0d9db1d6e2dfff6ba4c9316/internal/api/api.go#L34))
+3. Добавить теги валидации в поля сообщений (пример [template](https://github.com/ozonmp/omp-template-api/blob/be1223fb1d1c9751b0d9db1d6e2dfff6ba4c9316/protos/ozonmp/omp_template_api/v1/omp_template_api.proto#L28))
+4. Сделать рефакторинг: заменить `template` на `{subomain}` (см. рецепт)
+5. Сгенерировать **gRPC** код клиента и сервера (make generate)
+6. Имплементировать код новых ручек в **internal/api/api.go** (пример [template](https://github.com/ozonmp/omp-template-api/blob/be1223fb1d1c9751b0d9db1d6e2dfff6ba4c9316/internal/api/api.go#L34))
    1. Код ручек должен просто логгировать вызовы (с уровнем `debug`)
    2. Возвращать пустой ответ или внутреннюю ошибку (`not implemented`)
-8. Протестировать через **grpc_cli** написанные ручки (пример [template](https://github.com/ozonmp/omp-template-api/blob/main/DOCS.md#grpc))
-9. Написать тесты по обработке не валидных запросов :gem:
+7. Протестировать через **grpc_cli** написанные ручки (пример [template](https://github.com/ozonmp/omp-template-api/blob/main/DOCS.md#grpc))
+8. Написать тесты по обработке не валидных запросов :gem:
+9. Настроить маршрутизацию при запуске контейнеров: :gem:
+   - с `0.0.0.0:8080/swagger` на контейнер **swagger**
+   - c `0.0.0.0:8080/api` на контейнер сервиса на порт **gateway**-a
 10. Сгенерировать **Python** код клиента и задеплоить его в **PyPi** :gem: (пример [template](https://github.com/ozonmp/omp-template-api/blob/main/DOCS.md#python-client))
 
 
