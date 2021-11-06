@@ -81,7 +81,7 @@ type EventRepo interface {
 }
 ```
 
-3. Написать и накатить миграции
+4. Написать и накатить миграции
 ```sh
 $ cd migrations
 $ cat .env
