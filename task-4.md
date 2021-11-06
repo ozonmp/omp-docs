@@ -52,7 +52,7 @@
 |               |                           |    Removed    |        | `SubdomainRemoved` |         |
 
 
-2. Составить список sql запросов
+2. Составить список sql запросов для таблицы `{subdomains}`, потом для `{subdomains}_events`
 
 ```sql
 -- Lock n events 🐘 🏆
@@ -68,7 +68,6 @@ type Repo interface {
 	Remove(subdomainID uint64) (bool, error)
 }
 ```
-
 
 
 ```go
