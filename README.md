@@ -63,7 +63,7 @@
 ```go
 type Repo interface {
 	Add(*model.Subdomain) (uint64, error)
-	Get(eventIDs []uint64) (*model.Subdomain, error)
+	Get(eventID uint64) (*model.Subdomain, error)
 	List(limit uint64, cursor uint64) ([]model.Subdomain, error)
 	Remove(subdomainID uint64) (bool, error)
 }
